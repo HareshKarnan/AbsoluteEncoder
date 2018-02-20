@@ -37,7 +37,7 @@ def MSB():
 def readpos():
     GPIO.output(PIN_CS,0)
     time.sleep(delay)
-    
+    #MSB()
     data = 0
     for i in range(0,bitcount):
         if i<10:
@@ -51,7 +51,7 @@ def readpos():
                 clockdown()
                 clockup()
     GPIO.output(PIN_CS,1)
-    return data
+    return data 
 
 try:
     while(1):
