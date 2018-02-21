@@ -43,14 +43,13 @@ def readpos():
     for i in range(0,bitcount):
         if i<10:
             #print i
-            data[0]<<=1
-            data[1]<<=1
             clockup()
-            data[0]|=GPIO.input(PIN_DAT[0])
-            data[1]|=GPIO.input(PIN_DAT[1])
+            for j in range(0,ns):
+                data[j]<<=1  
+                data[j]|=GPIO.input(PIN_DAT[j])
             clockdown()
         else:
-            for k in range(0,8):
+            for k in range(0,6):
                 clockup()
                 clockdown()
     GPIO.output(PIN_CS,1)
